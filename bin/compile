@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -ex
 
 export BUILD_DIR=$1
 export CACHE_DIR=$2
