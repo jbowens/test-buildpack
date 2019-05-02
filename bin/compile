@@ -38,7 +38,7 @@ fi
 cd "$GITHUB_ORG-$GITHUB_REPO"
 git pull
 
-if [ ! -f "$SETUP_SCRIPT"]; then
+if [ ! -f "$SETUP_SCRIPT" ]; then
   echo "Couldn't find $SETUP_SCRIPT in $GITHUB_ORG/$GITHUB_REPO"
   exit 1
 fi
