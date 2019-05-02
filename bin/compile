@@ -34,8 +34,15 @@ fi
 if [ ! -f "$CACHE_DIR/$GITHUB_ORG-$GITHUB_REPO" ]; then
     git clone "https://github.com/$GITHUB_ORG/$GITHUB_REPO.git" "$GITHUB_ORG-$GITHUB_REPO"
 fi
-cd "$CACHE_DIR/$GITHUB_ORG-$GITHUB_REPO"
+REPO_DIR="$CACHE_DIR/$GITHUB_ORG-$GITHUB_REPO"
+cd $REPO_DIR
 git pull
+
+if [ -f "$REPO_DIR/Aptfile" ]; then
+  echo "REPO_DIR: $REPO_DIR"
+  BIN_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+  $BIN_DIR/compile-apt $REPO_DIR $CACHE_DIR
+fi
 
 if [ ! -f "$SETUP_SCRIPT" ]; then
   echo "Couldn't find $SETUP_SCRIPT in $GITHUB_ORG/$GITHUB_REPO"
