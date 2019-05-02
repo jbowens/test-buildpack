@@ -49,4 +49,4 @@ if [ ! -f "$SETUP_SCRIPT" ]; then
   exit 1
 fi
 
-eval bash "$SETUP_SCRIPT"
+eval bash "$SETUP_SCRIPT $BUILD_DIR $CACHE_DIR"
