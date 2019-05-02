@@ -23,7 +23,7 @@ GITHUB_ORG=$(cat "$ENV_DIR/GITHUB_ORG")
 GITHUB_REPO=$(cat "$ENV_DIR/GITHUB_REPO")
 GIT_CREDENTIALS=$(cat "$ENV_DIR/GIT_CREDENTIALS")
 
-~/.git-credentials < echo "$GIT_CREDENTIALS"
+cp "$ENV_DIR/GIT_CREDENTIALS" ~/.git-credentials
 git config --global credential.helper "store --file ~/.git-credentials"
 
 SETUP_SCRIPT="setup.sh"
